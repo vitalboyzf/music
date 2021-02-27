@@ -1,0 +1,176 @@
+body,
+h2,
+ul {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-size: cover;
+}
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 15vw;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* 底部菜单 */
+  /* 弹出列表 */
+}
+#wrapper .songImg {
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wrapper .songImg img {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+#wrapper .songInfo {
+  height: 20vh;
+  margin-top: 6vw;
+  text-align: center;
+  color: #fff;
+}
+#wrapper .songInfo h2 {
+  font-weight: normal;
+  font-size: 24px;
+  margin-bottom: 3vw;
+}
+#wrapper .songInfo div {
+  font-size: 14px;
+}
+#wrapper .progress {
+  font-size: 14px;
+  color: #fff;
+  line-height: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+#wrapper .progress .curTime {
+  padding: 0 4vw;
+}
+#wrapper .progress .drag {
+  height: 8vw;
+  position: relative;
+  flex: 1;
+}
+#wrapper .progress .drag .circle {
+  width: 2vw;
+  height: 2vw;
+  background-color: #f90;
+  border: 2vw solid rgba(0, 255, 255, 0);
+  background-clip: padding-box;
+  position: absolute;
+  border-radius: 50%;
+  left: -3vw;
+  top: 50%;
+  margin-top: -3vw;
+  z-index: 1;
+}
+#wrapper .progress .drag .frontBg {
+  position: absolute;
+  height: 0.6vw;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  background-color: #f90;
+  width: 0;
+}
+#wrapper .progress .drag .backBg {
+  position: absolute;
+  height: 0.6vw;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+#wrapper .progress .totalTime {
+  padding: 0 4vw;
+}
+#wrapper .control {
+  width: 100vw;
+  height: 16vw;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+#wrapper .control li {
+  width: 20%;
+  list-style: none;
+}
+#wrapper .control li:nth-child(1) {
+  background: url("../images/icon-like.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrapper .control li:nth-child(1).liking {
+  background-image: url(../images/icon-like-solid.png);
+}
+#wrapper .control li:nth-child(2) {
+  background: url("../images/icon-prev.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrapper .control li:nth-child(3) {
+  background: url("../images/icon-play.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrapper .control li:nth-child(3).playing {
+  background-image: url(../images/icon-pause.png);
+}
+#wrapper .control li:nth-child(4) {
+  background: url("../images/icon-next.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrapper .control li:nth-child(5) {
+  background: url("../images/icon-list.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrapper .list {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  background: linear-gradient(#050505, rgba(170, 170, 170, 0.95));
+  z-index: 4;
+}
+#wrapper .list dt,
+#wrapper .list dd,
+#wrapper .list .close {
+  height: 12vw;
+  line-height: 12vw;
+  font-size: 16px;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#wrapper .list dt,
+#wrapper .list .close {
+  text-align: center;
+}
+#wrapper .list dd {
+  padding-left: 3vw;
+}
+#wrapper .list dd.active {
+  color: #56b287;
+}
+#wrapper .list .close {
+  border-bottom: none;
+}

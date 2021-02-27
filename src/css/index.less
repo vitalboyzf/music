@@ -1,0 +1,202 @@
+body,
+h2,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-size: cover;
+}
+
+@process-color: #f90;
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 15vw;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, .2);
+
+    // 歌曲图片
+    .songImg {
+        width: 70vw;
+        height: 70vw;
+        border-radius: 50%;
+        margin: 0 auto;
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+        }
+    }
+
+    // 歌曲信息
+    .songInfo {
+        height: 20vh;
+        margin-top: 6vw;
+        text-align: center;
+        color: #fff;
+
+        h2 {
+            font-weight: normal;
+            font-size: 24px;
+            margin-bottom: 3vw;
+        }
+
+        div {
+            font-size: 14px;
+        }
+    }
+
+    // 进度条
+    .progress {
+        font-size: 14px;
+        color: #fff;
+        line-height: 8px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+
+        .curTime {
+            padding: 0 4vw;
+        }
+
+        .drag {
+            height: 8vw;
+            position: relative;
+            flex: 1;
+
+            .circle {
+                width: 2vw;
+                height: 2vw;
+                background-color: @process-color;
+                border: 2vw solid rgba(0, 255, 255, 0);
+                // 背景不包括边框
+                background-clip: padding-box;
+                position: absolute;
+                border-radius: 50%;
+                left: -3vw;
+                top: 50%;
+                margin-top: -3vw;
+                // transform: translateY(-50%);
+                z-index: 1;
+            }
+
+            .front-back-common(@backgroundColor) {
+                position: absolute;
+                height: .6vw;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+                background-color: @backgroundColor;
+            }
+
+            .frontBg {
+                .front-back-common(@process-color);
+                width: 0;
+            }
+
+            .backBg {
+                .front-back-common(rgba(0, 0, 0, .3));
+                z-index: -1;
+            }
+        }
+
+        .totalTime {
+            padding: 0 4vw;
+        }
+    }
+
+    /* 底部菜单 */
+    .control {
+        width: 100vw;
+        height: 16vw;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, .5);
+
+        li {
+            width: 20%;
+            list-style: none;
+        }
+
+        .btmImg (@url) {
+            background: url(@url);
+            background-size: 30%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        li:nth-child(1) {
+            .btmImg("../images/icon-like.png");
+
+            &.liking {
+                background-image: url(../images/icon-like-solid.png);
+            }
+        }
+
+        li:nth-child(2) {
+            .btmImg("../images/icon-prev.png");
+        }
+
+        li:nth-child(3) {
+            .btmImg("../images/icon-play.png");
+
+            &.playing {
+                background-image: url(../images/icon-pause.png);
+            }
+        }
+
+        li:nth-child(4) {
+            .btmImg("../images/icon-next.png");
+        }
+
+        li:nth-child(5) {
+            .btmImg("../images/icon-list.png");
+        }
+    }
+
+    /* 弹出列表 */
+    .list {
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+        background: linear-gradient(rgb(5, 5, 5), rgba(170, 170, 170, .95));
+        z-index: 4;
+
+        dt,
+        dd,
+        .close {
+            height: 12vw;
+            line-height: 12vw;
+            font-size: 16px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        dt,
+        .close {
+            text-align: center;
+        }
+
+        dd {
+            padding-left: 3vw;
+
+            &.active {
+                color: #56b287;
+            }
+        }
+
+        .close {
+            border-bottom: none;
+        }
+    }
+}
